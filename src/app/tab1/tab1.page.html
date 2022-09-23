@@ -1,0 +1,51 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title slot="start">
+      Calculadora
+    </ion-title>
+    <ion-buttons slot="end">
+      <ion-button> Limpar </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-item>
+    <ion-label position="floating">Valor 1</ion-label>
+    <ion-input [(ngModel)]="valor1"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label position="floating">Valor 2</ion-label>
+    <ion-input [(ngModel)]="valor2"></ion-input>
+  </ion-item>
+
+ <ion-grid>
+    <ion-row>
+      <ion-col size="3">
+        <ion-button (click)="presentAlert()" size="large"> + </ion-button>
+      </ion-col>
+      <ion-col size="3">
+        <ion-button (click)="presentAlert()" size="large"> - </ion-button>
+      </ion-col>
+      <ion-col size="3">
+        <ion-button (click)="presentAlert()" size="large"> * </ion-button>
+      </ion-col>
+      <ion-col size="3">
+        <ion-button (click)="presentAlert()" size="large"> / </ion-button>
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col size="6">
+        <ion-button (click)="presentAlert()" size="large"> Maior </ion-button>
+      </ion-col>
+      <ion-col size="6">
+        <ion-button (click)="presentAlert()" size="large"> Menor </ion-button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+  
+  
+
+</ion-content>
