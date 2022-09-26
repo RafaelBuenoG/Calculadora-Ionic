@@ -12,16 +12,30 @@ export class Tab1Page {
 
   valor1 = '';
   valor2 = '';
-  soma = this.valor1 + this.valor2;
-  subtracao = '';
-  multiplicacao = '';
-  divisao = '';
+  resultado = '';
+  conta = '';
 
+  soma(){
+    this.resultado = this.valor1 + this.valor2;
+  }
+
+  subtracao(){
+    this.resultado = this.valor1 + this.valor2;
+  }
+
+  multiplicacao(){
+    this.resultado = this.valor1 + this.valor2;
+  }
+
+  divisao(){
+    this.resultado = this.valor1 + this.valor2;
+  }
 
   async presentAlert() {
+    
     const alert = await this.alertController.create({
       header: 'Alert',
-      message: `Valor 1: ${this.valor1} <br> Valor 2: ${this.valor2} <br> Resultado: ${this.soma}`,
+      message: `Valor 1: ${this.valor1} <br> Valor 2: ${this.valor2} <br> Resultado: ${this.resultado}`,
       buttons: ['OK'],
     });
 
