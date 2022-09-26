@@ -31,6 +31,50 @@ export class Tab1Page {
     this.resultado = this.valor1 + this.valor2;
   }
 
+  async AlertSoma() {
+    
+    const alert = await this.alertController.create({
+      header: 'Alert',
+      message: `Valor 1: ${this.valor1} <br> Valor 2: ${this.valor2} <br> Resultado: ${this.resultado}`,
+      buttons: ['OK'],
+    });
+
+    await alert.present();
+  }
+
+  async AlertSub() {
+    
+    const alert = await this.alertController.create({
+      header: 'Alert',
+      message: `Valor 1: ${this.valor1} <br> Valor 2: ${this.valor2} <br> Resultado: ${this.resultado}`,
+      buttons: ['OK'],
+    });
+
+    await alert.present();
+  }
+
+  async AlertMul() {
+    
+    const alert = await this.alertController.create({
+      header: 'Alert',
+      message: `Valor 1: ${this.valor1} <br> Valor 2: ${this.valor2} <br> Resultado: ${this.resultado}`,
+      buttons: ['OK'],
+    });
+
+    await alert.present();
+  }
+
+  async Alertdiv() {
+    
+    const alert = await this.alertController.create({
+      header: 'Alert',
+      message: `Valor 1: ${this.valor1} <br> Valor 2: ${this.valor2} <br> Resultado: ${this.resultado}`,
+      buttons: ['OK'],
+    });
+
+    await alert.present();
+  }
+
   async presentAlert() {
     
     const alert = await this.alertController.create({
