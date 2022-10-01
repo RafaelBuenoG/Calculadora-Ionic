@@ -1,10 +1,10 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title slot="start">
-      Calculadora
+      Calculadora 1
     </ion-title>
     <ion-buttons slot="end">
-      <ion-button> Limpar </ion-button>
+      <ion-button (click)="limpar()" color="dark"> Limpar </ion-button>
     </ion-buttons>
   </ion-toolbar>
 </ion-header>
@@ -12,40 +12,59 @@
 <ion-content [fullscreen]="true">
   <ion-item>
     <ion-label position="floating">Valor 1</ion-label>
-    <ion-input [(ngModel)]="valor1"></ion-input>
+    <ion-input [(ngModel)]="valor1" type="number"></ion-input>
   </ion-item>
 
   <ion-item>
     <ion-label position="floating">Valor 2</ion-label>
-    <ion-input [(ngModel)]="valor2"></ion-input>
+    <ion-input [(ngModel)]="valor2" type="number"></ion-input>
   </ion-item>
 
  <ion-grid>
     <ion-row>
       <ion-col size="3">
-        <ion-button (click)="AlertSoma()" size="large"> + </ion-button>
+        <ion-button (click)="somar()" (click)="mostrarAlert()" size="large" expand="block" color="dark"> + </ion-button>
       </ion-col>
       <ion-col size="3">
-        <ion-button (click)="AlertSub()" size="large"> - </ion-button>
+        <ion-button (click)="subtracao()" (click)="mostrarAlert()" size="large" expand="block" color="dark"> - </ion-button>
       </ion-col>
       <ion-col size="3">
-        <ion-button (click)="AlertMul()" size="large"> * </ion-button>
+        <ion-button (click)="multiplicacao()" (click)="mostrarAlert()" size="large" expand="block" color="dark"> × </ion-button>
       </ion-col>
       <ion-col size="3">
-        <ion-button (click)="AlertDiv()" size="large"> / </ion-button>
+        <ion-button (click)="divisao()" (click)="mostrarAlert()" size="large" expand="block" color="dark"> ÷ </ion-button>
       </ion-col>
     </ion-row>
 
     <ion-row>
       <ion-col size="6">
-        <ion-button (click)="presentAlert()" size="large"> Maior </ion-button>
+        <ion-button (click)="maior()" (click)="mostrarMaior()" size="large" expand="block" color="dark"> Maior </ion-button>
       </ion-col>
       <ion-col size="6">
-        <ion-button (click)="presentAlert()" size="large"> Menor </ion-button>
+        <ion-button (click)="menor()" (click)="mostrarMenor()" size="large" expand="block" color="dark"> Menor </ion-button>
       </ion-col>
     </ion-row>
+
+    <ion-row>
+      <ion-col>
+        <ion-item>
+          <ion-label>Resultado: </ion-label>
+          <ion-input [(ngModel)]="resultado"></ion-input>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col>
+        <ion-item>
+          <ion-label>Conta: </ion-label>
+          <ion-input [(ngModel)]="conta"></ion-input>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+
   </ion-grid>
-  
-  
+
+
 
 </ion-content>
