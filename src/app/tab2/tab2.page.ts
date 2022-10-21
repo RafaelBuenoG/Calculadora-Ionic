@@ -1,5 +1,8 @@
 import { Component } from '@angular/core';
 import { evaluate} from 'mathjs'
+import { IMemoria } from '../Models/IMemoria.model';
+import { AlertController } from '@ionic/angular';
+
 
 @Component({
   selector: 'app-tab2',
@@ -14,9 +17,56 @@ export class Tab2Page {
   caracter = true;
   caracteres = ['.', '/', '*', '+', '-']; 
 
-  constructor() {}
+  memoria: IMemoria[] = [];
+
+  constructor(private alertController: AlertController) {}
 
   ngOnInit() {}
+
+  adicionarMemoria(){
+    if (this.operacao != '' && this.resultado != '') {
+      const memoria: IMemoria = {
+        operacao: this.operacao,
+        resultado: Number(this.resultado)
+      };
+      this.memoria.push(memoria);
+
+    } else if (this.operacao != '' && this.resultado == '') {
+      this.realizarOperacao();
+
+      const memoria: IMemoria = {
+        operacao: this.operacao,
+        resultado: Number(this.resultado)
+      };
+      this.memoria.push(memoria);
+    } else {
+      this.presentAlert('Aviso!', 'Nenhum valor para adicionar...');
+    }
+    console.log(this.memoria);
+  }
+
+  removerMemoria(){
+    this.memoria = [];
+  }
+
+  pegarMemoria(){
+    if (this.operacao != '' && this.resultado != ''){
+      this.operacao = this.memoria[this.operacao, this.resultado]
+      
+    }
+  }
+
+  somarMemoria(){
+
+  }
+
+  subtrairMemoria(){
+
+  }
+
+  exibirMemoria(){
+
+  }
 
   realizarOperacao(){
     try {
@@ -68,6 +118,16 @@ export class Tab2Page {
     } else {
       this.numero = false;
     }
+  }
+
+  async presentAlert(titulo: string, mensagem: string) {
+    const alert = await this.alertController.create({
+      header: titulo,
+      message: mensagem,
+      buttons: ['OK'],
+    });
+
+    await alert.present();
   }
 
 }

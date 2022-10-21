@@ -21,14 +21,14 @@
     <ion-row class="ion-align-items-center">
       <ion-col>
         <div>
-          <ion-button size="small" expand="block" color="light">
+          <ion-button (click)="removerMemoria()" size="small" expand="block" color="light">
             MC
           </ion-button>
         </div>
       </ion-col>
       <ion-col>
         <div>
-          <ion-button size="small" expand="block" color="light">
+          <ion-button (click)="pegarMemoria()" size="small" expand="block" color="light">
             MR
           </ion-button>
         </div>
@@ -49,7 +49,7 @@
       </ion-col>
       <ion-col>
         <div>
-          <ion-button size="small" expand="block" color="light">
+          <ion-button (click)="adicionarMemoria()" size="small" expand="block" color="light">
             MS
           </ion-button>
         </div>
@@ -57,7 +57,7 @@
       <ion-col>
         <div>
           <ion-button size="small" expand="block" color="light">
-            M^
+            M
           </ion-button>
         </div>
       </ion-col>
