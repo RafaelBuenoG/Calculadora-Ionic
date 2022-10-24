@@ -2,6 +2,8 @@ import { Component } from '@angular/core';
 import { evaluate} from 'mathjs'
 import { IMemoria } from '../Models/IMemoria.model';
 import { AlertController } from '@ionic/angular';
+import { ModalController } from '@ionic/angular';
+import { MemoriaModalPage } from '../utils/memoria-modal/memoria-modal.page';
 
 
 @Component({
@@ -19,9 +21,19 @@ export class Tab2Page {
 
   memoria: IMemoria[] = [];
 
-  constructor(private alertController: AlertController) {}
+  constructor(private alertController: AlertController, private modalCtrl: ModalController) {}
 
   ngOnInit() {}
+
+  async openModal() {
+    const modal = await this.modalCtrl.create({
+      component: MemoriaModalPage,
+      componentProps: {
+        memoria: this.memoria,
+      },
+    });
+    modal.present();
+  }
 
   adicionarMemoria(){
     if (this.operacao != '' && this.resultado != '') {
@@ -49,19 +61,35 @@ export class Tab2Page {
     this.memoria = [];
   }
 
-  pegarMemoria(){
-    if (this.operacao != '' && this.resultado != ''){
-      this.operacao = this.memoria[this.operacao, this.resultado]
-      
-    }
+  mostrarMemoria(){
+    const memoria:IMemoria = this.memoria[this.memoria.length - 1];
+    this.operacao = memoria.operacao;
+    this.resultado = memoria.resultado.toString();
+    console.log('Mostrou: ', this.memoria);
   }
 
   somarMemoria(){
-
+    if (this.operacao != '') {
+      this.realizarOperacao();
+      const memoria:IMemoria = this.memoria[this.memoria.length - 1];
+      const novaMemoria: IMemoria = {
+        operacao: `${memoria.resultado} + ${this.resultado}`,
+        resultado: memoria.resultado + Number(this.resultado),
+      };
+      this.memoria.push(novaMemoria);
+    }
   }
 
   subtrairMemoria(){
-
+    if (this.operacao != '') {
+      this.realizarOperacao();
+      const memoria:IMemoria = this.memoria[this.memoria.length - 1];
+      const novaMemoria: IMemoria = {
+        operacao: `${memoria.resultado} - ${this.resultado}`,
+        resultado: memoria.resultado - Number(this.resultado),
+      };
+      this.memoria.push(novaMemoria);
+    }
   }
 
   exibirMemoria(){
